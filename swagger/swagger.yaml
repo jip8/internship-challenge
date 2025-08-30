@@ -1,0 +1,43 @@
+openapi: 3.0.2
+info:
+  title: 'Desafio Salutho'
+  version: ''
+paths:
+  /api/lcm/:
+    get:
+      operationId: calculateLCM
+      description: Calcula o mínimo múltiplo comum (MMC) para um intervalo de números.
+      parameters:
+      - name: x
+        in: query
+        required: true
+        description: Primeiro argumento.
+        schema:
+          type: integer
+      - name: y
+        in: query
+        required: true
+        description: Segundo argumento.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: O MMC do intervalo entre [x, y].
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resultado:
+                    type: integer
+        '400':
+          description: Entrada inválida.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  erro:
+                    type: string
+      tags:
+      - api
